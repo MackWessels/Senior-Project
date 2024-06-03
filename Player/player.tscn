@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://4u2ls7ysuw4f" path="res://Senior-Project/Textures/Player/player_sprite.png" id="1_ca8wq"]
 [ext_resource type="Script" path="res://Senior-Project/Player/player.gd" id="1_kj2h8"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_kj2h8")
 
