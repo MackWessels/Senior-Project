@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3uj1jyuvsqu7"]
+[gd_scene load_steps=5 format=3 uid="uid://b3uj1jyuvsqu7"]
 
 [ext_resource type="Script" path="res://Senior-Project/Player/Attack/ice_spear.gd" id="1_uands"]
 [ext_resource type="Texture2D" uid="uid://btqclf7u01gfo" path="res://Senior-Project/Textures/Items/Weapons/ice_spear.png" id="2_rvw7j"]
+[ext_resource type="AudioStream" uid="uid://dixdygk6qmtpv" path="res://Senior-Project/Audio/SoundEffect/ice.wav" id="3_8oh8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2ex8"]
 size = Vector2(6.36396, 33.234)
@@ -27,5 +28,9 @@ one_shot = true
 autostart = true
 
 [node name="snd_play" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8oh8c")
+volume_db = -10.0
+pitch_scale = 5.0
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
