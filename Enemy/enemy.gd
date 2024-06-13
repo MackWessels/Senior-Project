@@ -9,6 +9,7 @@ var knockback = Vector2.ZERO
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var sprite = $Sprite2D
 @onready var anim = $AnimationPlayer
+@onready var snd_hit = $snd_hit
 
 signal remove_from_array(object)
 
@@ -34,3 +35,5 @@ func _on_hurt_box_hurt(damage, angle, knockback_amount):
 	if hp <= 0:
 		emit_signal("remove_from_array",self)
 		queue_free()
+	else:
+		snd_hit.play()
