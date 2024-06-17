@@ -24,7 +24,7 @@ var icespear_level = 1
 #Tornado
 var tornado_ammo = 0
 var tornado_baseammo = 1
-var tornado_attackspeed = 1.5
+var tornado_attackspeed = 3
 var tornado_level = 1
 
 

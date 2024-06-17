@@ -42,6 +42,9 @@ func _ready():
 	angle_less = global_position.direction_to(move_to_less)
 	angle_more = global_position.direction_to(move_to_more)
 	
+	var initial_tween = create_tween().set_parallel(true)
+	initial_tween.tween_property(self,"scale",Vector2(1,1) * attack_size, 3).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	
 	var tween = create_tween()
 	var set_angle = randi_range(0,1)
 	if set_angle == 1:
