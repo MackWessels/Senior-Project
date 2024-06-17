@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 var movement_speed = 40.0
 var hp = 80
+var last_movement = Vector2.UP
 
 #attacks
 var iceSpear = preload("res://Senior-Project/Player/Attack/ice_spear.tscn")
@@ -42,6 +43,7 @@ func movement():
 		sprite.flip_h = false
 	
 	if mov != Vector2.ZERO:
+		last_movement = mov
 		if walkTimer.is_stopped():
 			if sprite.frame >= sprite.hframes -1:
 				sprite.frame = 0
