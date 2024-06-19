@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://6qgdxms7kruj"]
+
+[ext_resource type="Texture2D" uid="uid://tflt8yv1d5ys" path="res://Senior-Project/Textures/Items/Weapons/javelin_3_new.png" id="1_c2x4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqsjb"]
+size = Vector2(2.82843, 33.9411)
+
+[node name="Javelin" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c2x4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.47035e-07, 2.98023e-08)
+rotation = -0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_cqsjb")
+disabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="ChangeDirection" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="ResetPosTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="snd_attack" type="AudioStreamPlayer2D" parent="."]
