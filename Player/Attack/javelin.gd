@@ -30,7 +30,7 @@ signal  remove_from_array(object)
 
 func _ready():
 	update_javelin()
-
+	_on_reset_pos_timer_timeout()
 
 func update_javelin():
 	level = player.javelin_level
