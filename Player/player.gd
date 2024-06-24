@@ -5,6 +5,10 @@ var movement_speed = 40.0
 var hp = 80
 var last_movement = Vector2.UP
 
+var experience = 0
+var experience_level = 1
+var collected_experience = 0
+
 #attacks
 var iceSpear = preload("res://Senior-Project/Player/Attack/ice_spear.tscn")
 var tornado = preload("res://Senior-Project/Player/Attack/tornado.tscn")
@@ -32,6 +36,9 @@ var tornado_level = 0
 #Javelin
 var javelin_ammo = 1
 var javelin_level = 1
+
+
+
 
 #Enemy related
 var enemy_close = []
