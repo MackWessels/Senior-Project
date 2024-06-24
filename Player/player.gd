@@ -173,6 +173,7 @@ func calculate_experience(gem_exp):
 		print("Level", experience_level)
 		experience = 0
 		exp_required = calculate_experiencecap()
+		calculate_experience(0)
 	else :
 		experience += collected_experience
 		collected_experience = 0
