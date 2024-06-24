@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2bx48ekwbsom"]
+[gd_scene load_steps=12 format=3 uid="uid://c2bx48ekwbsom"]
 
 [ext_resource type="Texture2D" uid="uid://4u2ls7ysuw4f" path="res://Senior-Project/Textures/Player/player_sprite.png" id="1_ca8wq"]
 [ext_resource type="Script" path="res://Senior-Project/Player/player.gd" id="1_kj2h8"]
 [ext_resource type="PackedScene" uid="uid://cgtsxcnkwupcd" path="res://Senior-Project/Utility/hurt_box.tscn" id="3_w5jpk"]
+[ext_resource type="Texture2D" uid="uid://cca06mdxucou2" path="res://Senior-Project/Textures/GUI/exp_background.png" id="4_rujc6"]
+[ext_resource type="Texture2D" uid="uid://belbykm48msm2" path="res://Senior-Project/Textures/GUI/exp_progress.png" id="5_gdxen"]
+[ext_resource type="FontFile" uid="uid://duerjh6dfilaj" path="res://Senior-Project/Font/tenderness.otf" id="6_dhfjl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vfdy2"]
 radius = 4.0
@@ -89,6 +92,34 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
 shape = SubResource("CircleShape2D_3dycb")
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="GUILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = ExtResource("4_rujc6")
+texture_progress = ExtResource("5_gdxen")
+
+[node name="Lbl_level" type="Label" parent="GUILayer/GUI/ExperienceBar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 540.0
+offset_right = 640.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("6_dhfjl")
+theme_override_font_sizes/font_size = 16
+text = "Level: 1"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]

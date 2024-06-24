@@ -33,4 +33,18 @@ spawns = Array[ExtResource("5_n8mrn")]([SubResource("Resource_vtcq3")])
 
 [node name="ExperienceGem" parent="Loot" instance=ExtResource("6_nxldf")]
 position = Vector2(80, 59)
-experience = 500
+
+[node name="ExperienceGem2" parent="Loot" instance=ExtResource("6_nxldf")]
+position = Vector2(119, 55)
+
+[node name="ExperienceGem3" parent="Loot" instance=ExtResource("6_nxldf")]
+position = Vector2(96, 68)
+
+[node name="ExperienceGem4" parent="Loot" instance=ExtResource("6_nxldf")]
+position = Vector2(148, 65)
+
+[node name="ExperienceGem5" parent="Loot" instance=ExtResource("6_nxldf")]
+position = Vector2(188, 54)
+
+[node name="ExperienceGem6" parent="Loot" instance=ExtResource("6_nxldf")]
+position = Vector2(168, 67)
