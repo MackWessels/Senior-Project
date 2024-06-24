@@ -8,7 +8,7 @@ var spr_blue = preload("res://Senior-Project/Textures/Items/Gems/Gem_blue.png")
 var spr_red = preload("res://Senior-Project/Textures/Items/Gems/Gem_red.png")
 
 var target = null
-var speed = 0
+var speed = -1
 
 @onready var sprite = $Sprite2D
 @onready var collision = $CollisionShape2D
