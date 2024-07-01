@@ -5,6 +5,7 @@ var movement_speed = 40.0
 var hp = 80
 var maxhp = 80
 var last_movement = Vector2.UP
+var time = 0
 
 var experience = 0
 var experience_level = 1
@@ -53,6 +54,8 @@ var enemy_close = []
 @onready var upgradeOptions = get_node("%UpgradeOptions")
 @onready var itemOptions = preload("res://Senior-Project/Utility/item_option.tscn")
 @onready var sndLevelUp = get_node("%snd_levelup")
+@onready var healthBar = get_node("%HealthBar")
+@onready var lblTimer = get_node("%lbl_Timer")
 
 #UPGRADES
 var collected_upgrades = []
@@ -68,6 +71,7 @@ func _ready():
 	upgrade_character("icespear1")
 	attack()
 	set_expbar(experience, calculate_experiencecap())
+	_on_hurt_box_hurt(0,0,0)
 
 func _physics_process(delta):
 	movement()
@@ -107,7 +111,9 @@ func attack():
 
 func _on_hurt_box_hurt(damage, _angle, _knockback):
 	hp -= clamp(damage - armor, 1, 999)
-	print(hp)
+	healthBar.max_value = maxhp
+	healthBar.value = hp
+
 
 
 func _on_ice_spear_timer_timeout():
@@ -319,7 +325,16 @@ func get_random_item():
 	else:
 		return null
 
-
+func change_time(argTtime = 0):
+	time = argTtime
+	var get_m = int(time/60)
+	var get_s = time % 60
+	if get_m < 10:
+		get_m = str(0,get_m)
+	if get_s < 10:
+		get_s = str(0,get_s)
+	lblTimer.text = str(get_m,":",get_s)
+	
 
 
 
