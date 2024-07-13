@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2bx48ekwbsom"]
+[gd_scene load_steps=18 format=3 uid="uid://c2bx48ekwbsom"]
 
 [ext_resource type="Texture2D" uid="uid://4u2ls7ysuw4f" path="res://Senior-Project/Textures/Player/player_sprite.png" id="1_ca8wq"]
 [ext_resource type="Script" path="res://Senior-Project/Player/player.gd" id="1_kj2h8"]
@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://bpffahigagh13" path="res://Senior-Project/Audio/SoundEffect/levelup.ogg" id="7_kypcy"]
 [ext_resource type="Texture2D" uid="uid://c7dhnmcoaowdx" path="res://Senior-Project/Textures/GUI/healthbar.png" id="8_k8l6y"]
 [ext_resource type="Texture2D" uid="uid://bqhv2vnlh0x3p" path="res://Senior-Project/Textures/GUI/health.png" id="9_8gt38"]
+[ext_resource type="AudioStream" uid="uid://dsdpxstcqk5yo" path="res://Senior-Project/Audio/SoundEffect/Victory.wav" id="10_dkegw"]
+[ext_resource type="AudioStream" uid="uid://cmm2b61k50ot5" path="res://Senior-Project/Audio/SoundEffect/Lose.ogg" id="11_qx5gr"]
+[ext_resource type="PackedScene" uid="uid://ddx7shjhhuxnt" path="res://Senior-Project/Utility/basic_button.tscn" id="12_fbhob"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vfdy2"]
 radius = 4.0
@@ -139,6 +142,7 @@ texture_progress = ExtResource("9_8gt38")
 [node name="LevelUp" type="Panel" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 process_mode = 2
+visible = false
 layout_mode = 0
 offset_left = 800.0
 offset_top = 50.0
@@ -166,6 +170,43 @@ offset_bottom = 100.0
 unique_name_in_owner = true
 stream = ExtResource("7_kypcy")
 volume_db = -10.0
+
+[node name="DeathPanel" type="Panel" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+process_mode = 2
+layout_mode = 0
+offset_left = 420.0
+offset_top = -325.0
+offset_right = 620.0
+offset_bottom = -75.0
+
+[node name="lbl_Result" type="Label" parent="GUILayer/GUI/DeathPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("6_dhfjl")
+text = "Result"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="snd_victory" type="AudioStreamPlayer" parent="GUILayer/GUI/DeathPanel"]
+unique_name_in_owner = true
+stream = ExtResource("10_dkegw")
+volume_db = -10.0
+
+[node name="snd_lose" type="AudioStreamPlayer" parent="GUILayer/GUI/DeathPanel"]
+unique_name_in_owner = true
+stream = ExtResource("11_qx5gr")
+volume_db = -10.0
+
+[node name="btn_menu" parent="GUILayer/GUI/DeathPanel" instance=ExtResource("12_fbhob")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 200.0
+offset_right = 142.0
+offset_bottom = 234.0
+text = "Menu"
 
 [node name="lbl_Timer" type="Label" parent="GUILayer/GUI"]
 unique_name_in_owner = true
@@ -207,5 +248,6 @@ columns = 10
 [connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
 [connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
+[connection signal="pressed" from="GUILayer/GUI/DeathPanel/btn_menu" to="." method="_on_btn_menu_pressed"]
 
 [editable path="HurtBox"]

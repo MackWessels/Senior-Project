@@ -11,12 +11,14 @@ var experience = 0
 var experience_level = 1
 var collected_experience = 0
 
+
 #attacks
 var iceSpear = preload("res://Senior-Project/Player/Attack/ice_spear.tscn")
 var tornado = preload("res://Senior-Project/Player/Attack/tornado.tscn")
 var javelin = preload("res://Senior-Project/Player/Attack/javelin.tscn")
 
-#attackNodes
+
+#AttackNodes
 @onready var iceSpearTimer = get_node("%IceSpearTimer")
 @onready var iceSpearAttackTimer = get_node("%IceSpearAttackTimer")
 @onready var tornadoTimer = get_node("%TornadoTimer")
@@ -60,6 +62,13 @@ var enemy_close = []
 @onready var collectedUpgrades = get_node("%CollectedUpgrades")
 @onready var itemContainer = preload("res://Senior-Project/Player/GUI/item_container.tscn")
 
+@onready var deathPanel = get_node("%DeathPanel")
+@onready var lblResult = get_node("%lbl_Result")
+@onready var sndVictory = get_node("%snd_victory")
+@onready var sndLose = get_node("%snd_lose")
+
+
+
 #UPGRADES
 var collected_upgrades = []
 var upgrade_options = []
@@ -69,6 +78,8 @@ var spell_cooldown = 0
 var spell_size = 0
 var additional_attacks = 0
 
+#Signal
+signal playerdeath
 
 func _ready():
 	upgrade_character("icespear1")
@@ -116,6 +127,8 @@ func _on_hurt_box_hurt(damage, _angle, _knockback):
 	hp -= clamp(damage - armor, 1, 999)
 	healthBar.max_value = maxhp
 	healthBar.value = hp
+	if hp <= 0:
+		death()
 
 
 
@@ -356,6 +369,22 @@ func adjust_gui_collection(upgrade):
 					collectedUpgrades.add_child(new_item)
 
 
+func death():
+	deathPanel.visible = true
+	emit_signal("playerdeath")
+	get_tree().paused = true
+	var tween = deathPanel.create_tween()
+	tween.tween_property(deathPanel,"position", Vector2(220, 50), 3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
+	if time >= 300:
+		lblResult.text = "You Win!"
+		sndVictory.play()
+	else:
+		lblResult.text = "You Lose"
+		sndLose.play()
 
 
 
+func _on_btn_menu_pressed():
+	get_tree().paused = false
+	var _level = get_tree().change_scene_to_file("res://Senior-Project/TitleScreen/menu.tscn")
