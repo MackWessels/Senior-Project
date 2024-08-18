@@ -25,7 +25,7 @@ offset_right = 640.0
 offset_bottom = 100.0
 theme_override_fonts/font = ExtResource("1_b8np0")
 theme_override_font_sizes/font_size = 72
-text = "NAME"
+text = "Lost Prairie"
 horizontal_alignment = 1
 vertical_alignment = 1
 
