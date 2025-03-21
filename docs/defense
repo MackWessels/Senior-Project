@@ -1,1 +1,109 @@
+# 🏔️ Defense Documentation: Lost Plateau
 
+## 🎯 Statement of Purpose
+
+Lost Plateau is a horror casual game with rogue-lite elements designed to be both engaging and accessible. It addresses common industry barriers like paywalls and data collection, while highlighting cognitive and mental health benefits supported by research (Godman; NIH). The goal is to offer a fun, low-barrier experience that enhances well-being.
+
+## 📚 Research & Background
+
+Studies show games improve cognitive skills and mental health. Lost Plateau draws inspiration from *Vampire Survivors*, leveraging:
+
+- **Procedural generation**
+- **Permanent progression**
+- **Godot Engine development**
+
+These elements support replayability and continuous engagement.
+
+## 🛠️ Project Stack
+
+**Languages:** GDScript, C#  
+**Software:** Godot Engine 3.5+, Git  
+**Hardware Requirements:**
+- Intel i5 or better
+- 8GB RAM
+- GPU with 2GB VRAM
+- 10GB storage
+
+**Supported OS:** Windows 10, Windows 11
+
+## ✅ Project Requirements
+
+- **Player Movement:** WASD
+- **Enemy Spawning:** Outside viewbox
+- **Enemy Movement:** Tracks player
+- **Health Mechanics:** On contact
+- **UI:** Health bar, progress bar
+- **Collision Detection:** No overlap
+- **Skills:** Auto-launch periodically
+- **Enemy Damage:** Projectile impact
+- **Knockback:** On projectile hit
+- **Despawn Logic:** Enemies & projectiles
+- **Gem Drops & Collection:** With despawn
+- **Upgrade System:** Triggered by gem count
+- **Scaling Difficulty:** Increased enemies
+- **End Conditions:** Victory (5 min) or death
+- **Privacy:** No data collection
+
+## 🧩 Implementation Summary
+
+1. **Main Menu** – Start/Quit options  
+2. **Gameplay** – Procedurally generated grasslands with enemy kobolds  
+3. **Skills** – Auto-activated at intervals  
+4. **Gems** – Dropped by enemies, used for upgrades  
+5. **End Conditions** – Victory screen after 5 minutes or death screen with return button
+
+> 📸 *Figures referenced in the original documentation are omitted for GitHub formatting.*
+
+🔗 **Source Code:** [Lost Plateau GitHub Repository](https://github.com/MackWessels/Senior-Project)
+
+## 🧪 Test Plan
+
+| Test Case | Expected Result |
+|-----------|-----------------|
+| Player movement with WASD | Smooth, accurate movement |
+| Enemies spawn out of view | Consistent immersion |
+| Enemies track player | Real-time pursuit |
+| Health loss on contact | Health bar updates correctly |
+| Health bar visible on damage | Dynamic, accurate display |
+| Collision detection | No character overlap |
+| Skills launch periodically | No input required |
+| Enemy health decreases | Damage visible |
+| Knockback effect | Enemies pushed back |
+| Projectiles despawn correctly | No lingering entities |
+| Enemies despawn on death | Trigger gem drops |
+| Gems can be collected | Progress bar updates |
+| Upgrades trigger at threshold | Functional enhancements |
+| Enemy numbers increase | Logical difficulty scaling |
+| Return to menu on death | Button appears and works |
+
+✅ All test cases passed without performance issues or bugs.
+
+## 💼 Professional Practices
+
+- **Tools:** Godot, GitHub, debugging tools
+- **Workflow:** Iterative development with milestones
+- **Skills Gained:** Procedural generation, AI scripting, optimization
+
+## ⚔️ Challenges
+
+- Learning Godot’s workflow and node system
+- Balancing procedural generation for fairness
+- Managing performance under heavy entity load (solved via pooling and optimized collision detection)
+
+## 🚀 Future Enhancements
+
+- New levels and enemies
+- Mobile platform support
+- Multiplayer co-op
+- Smarter enemy AI behavior
+
+## 📚 References
+
+- Godman, H. *Having a Hobby Tied to Happiness and Well-Being*. Harvard Health, 2024  
+- *Video Gaming and Cognitive Performance in Children*. NIH, 2023  
+- *What Is Gamification (GF)?* Interaction Design Foundation, 2024
+
+---
+
+**Project Advisor:** Michael O'Neill  
+**Developer:** Mack Wessels
